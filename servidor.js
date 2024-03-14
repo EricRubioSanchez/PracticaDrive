@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"))
 
 const gd = JSON.parse(fs.readFileSync("google_drive.json", {encoding:"utf8"}));
-const driveClient = createDriveClient(gd.clientId, gd.clientSecret, gd.redirectUri, gd.refreshToken);
+const driveClient = createDriveClient(gd.web.client_id, gd.web.client_secret, gd.web.auth_uri, gd.web.token_uri);
 console.log(driveClient);
 
 function createDriveClient(clientId, clientSecret, redirectUri, refreshToken) {
@@ -25,3 +25,4 @@ app.get('/', function (req, res) {
 
 
 app.listen(3000)
+
