@@ -23,6 +23,17 @@ app.get('/', function (req, res) {
   res.redirect("/main/index.html");
 })
 
+app.post('/upload', upload.single("foto"), function (req, res) {
+  const form = req.body;
+  const file = req.file;
+  console.log(form);
+  if (file) {//Guardar Libro
+  }
+
+  
+  res.redirect("/index.html")
+
+})
 
 app.listen(3000)
 
